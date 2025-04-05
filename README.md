@@ -2,6 +2,8 @@
 
 ---
 
+- freshmea
+
 limo 수업
 
 - 파일 다운로드
@@ -9,7 +11,6 @@ limo 수업
 
 - vscode deb 파일
 [링크](https://drive.google.com/file/d/1We4ILpw1NTzpspkflSpvdZikvyApTxn0/view?usp=sharing)
-
 
 ---
 
