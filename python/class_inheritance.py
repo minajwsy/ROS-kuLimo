@@ -1,6 +1,7 @@
 # from test_a.functionEx import print_3_time, print_n_time, print_var
+# from test_a import print_3_time, print_n_time, print_var
+import test_a
 from class_strudent import Student
-from test_a import print_3_time, print_n_time, print_var
 
 
 class Graduated_Student(Student):
@@ -25,8 +26,8 @@ def main():
     print(isinstance(choi, object)) # int dict list 내장 클래스 예외
     print(isinstance(int, object))
     print(isinstance(float, object))
-    print(print_var)
-    print_3_time()
+    print(test_a.print_var)
+    test_a.print_3_time()
 
 if __name__ == "__main__":
     main()
