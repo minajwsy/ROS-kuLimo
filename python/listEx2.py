@@ -12,6 +12,19 @@ def main():
     print(list_a)
     list_a.remove(3) # [1, "추가원소"]
     print(list_a)
+    
+    if 5 in list_b:
+        print("5 는 list_b 에 있습니다.")
+    else:
+        print("5 는 list_b 에 없습니다.")
+
+    j =0
+    for i in list_b:
+        j +=1
+        print(f"{j} 번째 요소는 {i} 입니다.")
+
+    for j, i in enumerate(list_b):
+        print(f"{j+1} 번째 요소는 {i} 입니다.")
 
 if __name__ == "__main__":
     main()
