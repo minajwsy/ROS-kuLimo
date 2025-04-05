@@ -1,3 +1,5 @@
+print_var = "이 변수는 print_var 이다."
+
 def print_3_time():
     print("안녕하세요")
     print("안녕하세요")
