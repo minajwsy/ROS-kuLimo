@@ -17,7 +17,12 @@ def main():
     students = [park, choi]
     for student in students:
         print(student.get_sum())
-    # print(choi.get_graduate_sum())
+    print(isinstance(choi, Graduated_Student)) # True
+    print(isinstance(choi, Student)) # True
+    print(isinstance(choi, int)) # False
+    print(isinstance(choi, object)) # int dict list 내장 클래스 예외
+    print(isinstance(int, object))
+    print(isinstance(float, object))
 
 if __name__ == "__main__":
     main()
