@@ -6,6 +6,12 @@
 
 limo 수업
 
+- 1조: 반인규, 정명재, 구찬형, 이현성, 박윤국
+- 2조: 박정우, 차경민, 김학민, 정대진, 이경용
+- 3조: 손건희, 최근호, 양정아, 김지숙, 이승원
+- 4조: 윤형정, 최용규, 이한솔, 맹진수, 정용재
+
+
 - 파일 다운로드
 [링크](https://drive.google.com/file/d/1twlHYAgrWeLSQRO_vHy68lJxr-n1qIWl/view?usp=sharing)
 
