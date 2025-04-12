@@ -18,6 +18,8 @@ limo 수업
 - vscode deb 파일
 [링크](https://drive.google.com/file/d/1We4ILpw1NTzpspkflSpvdZikvyApTxn0/view?usp=sharing)
 
+- noetic ros1 컨테이너 만들기
+  - docker run -it -d --name ros1_noetic --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --net=host osrf/ros:noetic-desktop-full
 ---
 
 ## 2025-03-15
