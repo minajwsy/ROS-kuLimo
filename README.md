@@ -20,6 +20,16 @@ limo 수업
 
 - noetic ros1 컨테이너 만들기
   - docker run -it -d --name ros1_noetic --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --net=host osrf/ros:noetic-desktop-full
+
+```
+source /opt/ros/noetic/setup.bash # ros를 초기화.
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+mkdir -p /run/user/$(id -u)
+chmod 700 /run/user/$(id -u)
+# rosrun turtlesim turtlesim_node
+# rosrun turtlesim turtle_teleop_key
+# rqt
+```
 ---
 
 ## 2025-03-15
