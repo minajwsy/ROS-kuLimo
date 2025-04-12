@@ -29,6 +29,7 @@ chmod 700 /run/user/$(id -u)
 # rosrun turtlesim turtlesim_node
 # rosrun turtlesim turtle_teleop_key
 # rqt
+# rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'
 ```
 ---
 
