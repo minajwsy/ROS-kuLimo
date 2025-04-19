@@ -17,8 +17,8 @@ catkin_python_setup()
 catkin_package()
 
 catkin_install_python(PROGRAMS
-  scripts/hello.py
-  scripts/moveTurtle.py
+  scripts/hello
+  scripts/moveTurtle
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
