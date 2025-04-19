@@ -9,7 +9,7 @@ class Simple_sub(Node):
         self.create_subscription(String, 'message', self.sub_callback, 10)
 
     def sub_callback(self, msg: String):
-        print(msg.data)
+        self.get_logger().info(msg.data)
 
 
 def main():

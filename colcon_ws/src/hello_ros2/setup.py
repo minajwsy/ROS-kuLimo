@@ -26,7 +26,8 @@ setup(
         'console_scripts': [
             'hello_ros = hello_ros2.hello_ros:main',
             'move_turtle = hello_ros2.move_turtle:main',
-            'simple_sub = hello_ros2.simple_sub:main'
+            'simple_sub = hello_ros2.simple_sub:main',
+            'simple_pub = hello_ros2.simple_pub:main'
         ],
     },
 )
