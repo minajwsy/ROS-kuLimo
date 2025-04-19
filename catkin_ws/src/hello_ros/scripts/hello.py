@@ -1,8 +1,5 @@
-# catkin_make
-# roscore
-# rostopic echo /message
-# rostopic hz /message
-# rqt
+#! /usr/bin/python3
+
 import rospy
 from std_msgs.msg import String
 

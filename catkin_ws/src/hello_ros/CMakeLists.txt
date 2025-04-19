@@ -15,9 +15,9 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package()
 
 catkin_install_python(PROGRAMS
-  script/hello.py
-  script/moveTurtle.py
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  scripts/hello.py
+  scripts/moveTurtle.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 include_directories(
