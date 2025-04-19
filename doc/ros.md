@@ -50,6 +50,9 @@
   - message.launch.py 작성
 - 6교시
   - ros1 docker 설정 - 복습
+  - [docker 설정](/doc/docker/docker%20설정.md)
 - 7교시
   - hello.py 코드 객체지향으로 변경
 - 8교시
+  - launch/message.launch 작성 (ros1 launch)
+  - ros1 launch 로 hello.py 실행
