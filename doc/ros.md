@@ -28,3 +28,23 @@
   - ros2 설명
 - 8교시
   - ros2 package 만들기 - colcon build -> hello_ros2
+
+---
+
+## 2025-04-19
+
+---
+
+- 1교시
+  - 복습
+  - docker 설명
+- 2교시
+  - docker 설치
+- 3교시
+  - ros2 Python 패키지 만들기
+- 4교시
+  - ros2 hello_ros 노드 만들기
+- 5교시
+- 6교시
+- 7교시
+- 8교시
