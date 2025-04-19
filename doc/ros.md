@@ -39,12 +39,17 @@
   - 복습
   - docker 설명
 - 2교시
-  - docker 설치
+  - ros2 hello_ros class 만들기
+  - rqt 활용 - topic publisher 사용
 - 3교시
-  - ros2 Python 패키지 만들기
+  - ros2 simple_sub 노드 만들기
 - 4교시
-  - ros2 hello_ros 노드 만들기
+  - ros2 simple_pub 노드 만들기
+  - ros2 launch 파일 설명
 - 5교시
+  - message.launch.py 작성
 - 6교시
+  - ros1 docker 설정 - 복습
 - 7교시
+  - hello.py 코드 객체지향으로 변경
 - 8교시
