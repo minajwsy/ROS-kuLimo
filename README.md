@@ -8,24 +8,23 @@
   - 3조: 손건희, 최근호, 김지숙, 이승원
   - 4조: 윤형정, 최용규, 이한솔, 맹진수, 정용태
 
-- 파일 다운로드
+- Vmware player 파일 다운로드
 [링크](https://drive.google.com/file/d/1twlHYAgrWeLSQRO_vHy68lJxr-n1qIWl/view?usp=sharing)
 
 - vscode deb 파일
 [링크](https://drive.google.com/file/d/1We4ILpw1NTzpspkflSpvdZikvyApTxn0/view?usp=sharing)
 
-- noetic ros1 컨테이너 만들기
-  - docker run -it -d --name ros1_noetic --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --net=host osrf/ros:noetic-desktop-full
-
 ```bash
+# 31번 라인
+if [[ "$TERM" == *color* ]]; then
+    color_prompt=yes
+fi
+# 맨 아래에 추가
 source /opt/ros/noetic/setup.bash # ros를 초기화.
+source ~/kuLimo/catkin_ws/devel/setup.bash
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 mkdir -p /run/user/$(id -u)
 chmod 700 /run/user/$(id -u)
-# rosrun turtlesim turtlesim_node
-# rosrun turtlesim turtle_teleop_key
-# rqt
-# rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'
 ```
 
 ---
