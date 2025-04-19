@@ -27,6 +27,7 @@ chmod 700 /run/user/$(id -u)
 # rqt
 # rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'
 ```
+
 ---
 
 ## 파이썬 수업
