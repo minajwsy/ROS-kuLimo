@@ -11,13 +11,20 @@ import rclpy
 from rclpy.node import Node
 
 
-def print_hello():
-    print("hello, ROS2 humble!! ")
+class Hello(Node):
+    def __init__(self):
+        super().__init__('hello')
+        self.create_timer(1, self.print_hello)
+        self.count = 0
+
+    def print_hello(self):
+        print(f"hello, ROS2 humble!! {self.count}")
+        self.count += 1
+
 
 def main():
     rclpy.init()
-    node = Node('hello')
-    node.create_timer(1, print_hello)
+    node = Hello()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
