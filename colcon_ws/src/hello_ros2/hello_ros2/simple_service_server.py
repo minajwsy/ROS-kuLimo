@@ -1,9 +1,20 @@
-import rclpy
+import rclpy, time
 from rclpy.node import Node
 from std_srvs.srv import SetBool
 
 class Service_server(Node):
-    pass
+    def __init__(self):
+        super().__init__("service_server") # 노드 이름
+        self.create_service(SetBool, "setBool", self.setBool_callback)
+        self.bool = False
+        
+    def setBool_callback(self, request : SetBool.Request, response : SetBool.Response):
+        # 서버의 작동 알고리즘...
+        self.bool = request.data
+        response.message = "변경이 성공 했습니다. True"
+        response.success = True
+        time.sleep(5)
+        return response
 
 def main():
     rclpy.init()
