@@ -4,16 +4,20 @@
 # rosrun hello_ros mtpub
 
 import rospy
-from std_msgs.msg import Header
+from std_msgs.msg import Header, String
 
 
 class MTsub:
     def __init__(self):
-        self.sub = rospy.Subscriber('time', Header, self.sub_callback)
+        self.sub = rospy.Subscriber('time', Header, self.sub_callback1)
+        self.sub = rospy.Subscriber('message', String, self.sub_callback2)
 
-    def sub_callback(self, msg: Header):
-        rospy.loginfo(f"들어온 메세지: {msg.frame_id}")
-        rospy.loginfo(f"들어온 시간: {msg.stamp.secs}")
+    def sub_callback1(self, msg: Header):
+        rospy.loginfo(f"들어온 메세지 by mtsub: {msg.frame_id}")
+        rospy.loginfo(f"들어온 시간 by mtsub: {msg.stamp.secs}")
+
+    def sub_callback2(self, msg: String):
+        rospy.loginfo(f"들어온 메세지 by mtsub: {msg.data}")
 
 
 def main():

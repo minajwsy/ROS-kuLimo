@@ -21,6 +21,9 @@ catkin_install_python(PROGRAMS
   scripts/moveTurtle
   scripts/mtpub
   scripts/mtsub
+  scripts/mpub
+  scripts/msub
+  scripts/msub2
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
