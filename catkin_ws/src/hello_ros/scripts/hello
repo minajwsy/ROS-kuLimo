@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 
 import rospy
-from hello_ros import var_a
+from hello_ros.a import test_function
 from std_msgs.msg import String
 
 
@@ -14,7 +14,8 @@ class Hello:
         self.rate = rospy.Rate(3)
 
     def print_hello(self, _event):
-        self.data.data = f"hello, ROS! {var_a} noetic {self.i}"
+        self.data.data = f"hello, ROS! noetic {self.i}"
+        print(test_function())
         rospy.loginfo(self.data.data)
         self.pub.publish(self.data)
         self.i += 1
