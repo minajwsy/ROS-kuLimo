@@ -20,6 +20,7 @@ catkin_install_python(PROGRAMS
   scripts/hello
   scripts/moveTurtle
   scripts/mtpub
+  scripts/mtsub
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
