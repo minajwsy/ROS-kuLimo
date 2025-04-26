@@ -7,21 +7,26 @@ from std_srvs.srv import SetBool, SetBoolRequest, SetBoolResponse
 class SerivceClinet:
     def __init__(self):
         self.client = rospy.ServiceProxy('setBool', SetBool)
-        self.client.wait_for_service(timeout=1.0)
+        while not rospy.is_shutdown():
+            try:
+                self.client.wait_for_service(timeout=1.0)
+                break
+            except rospy.ROSException:
+                rospy.loginfo("service not available!!")
 
     def send_request(self):
         data = SetBoolRequest()
         data.data = True
-        response :SetBoolResponse= self.client.call(data) # 동기적!! 5초 동안 대기.
+        response :SetBoolResponse = self.client.call(data) # 동기적!! 5초 동안 대기.
         rospy.loginfo(f"{response.message}")
         rospy.loginfo(f"{response.success}")
 
 def main():
     rospy.init_node('service_client')
     node = SerivceClinet()
-    node.send_request()
-    # while not rospy.is_shutdown():
-    #     rospy.spin()
+    # node.send_request() 필요한 곳에 쓴다!!
+    while not rospy.is_shutdown():
+        rospy.spin()
 
 if __name__ == "__main__":
     try:
