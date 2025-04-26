@@ -57,7 +57,7 @@ class SerivceClinet:
         await asyncio.gather(self.update(), self.periodic_request())
 
 def main():
-    rospy.init_node('service_client')
+    rospy.init_node('service_client', anonymous=True)
     node = SerivceClinet()
     loop = node.loop
     try:
