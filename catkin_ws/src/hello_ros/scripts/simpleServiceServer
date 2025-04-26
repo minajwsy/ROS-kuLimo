@@ -1,0 +1,27 @@
+import rospy
+from std_srvs.srv import SetBool, SetBoolRequest, SetBoolResponse
+
+
+class ServiceServer:
+    def __init__(self):
+        self.srv = rospy.Service('setBool', SetBool, self.setBool_callback)
+        self.bool = False
+
+    def setBool_callback(self, request: SetBoolRequest):
+        response = SetBoolResponse()
+        # 서버가 처리하는 코드 ....
+        self.bool = request.data
+        response.message = "Bool 변경이 성공!"
+        response.success = True
+        return response
+
+def main():
+    rospy.init_node("service_server")
+    noe = ServiceServer()
+    try:
+        rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
+
+if __name__ == "__main__":
+    main()
