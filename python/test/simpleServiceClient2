@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+
+import threading
+
+import rospy
+from std_srvs.srv import SetBool, SetBoolRequest
+
+
+class ServiceClient:
+    def __init__(self):
+        rospy.init_node('service_client')
+        self.client = rospy.ServiceProxy('setBool', SetBool)
+        while not rospy.is_shutdown():
+            try:
+                self.client.wait_for_service(timeout=1.0)
+                break
+            except rospy.ROSException:
+                rospy.loginfo("service not available")
+        self.request = SetBoolRequest()
+        self.toggle = False  # True/False 토글 상태
+        self.is_request_running = False  # 스레드 중복 방지 플래그
+        rospy.Timer(rospy.Duration(0.1), self.update)
+        rospy.Timer(rospy.Duration(2.0), self.periodic_request)
+        self.send_request()  # 초기 요청
+
+    def send_request(self):
+        if self.is_request_running:
+            rospy.loginfo("Previous request still running, skipping")
+            return
+        self.toggle = not self.toggle
+        self.request.data = self.toggle
+        rospy.loginfo(f"Sending request with data: {self.request.data}")
+        self.is_request_running = True
+        thread = threading.Thread(target=self.async_service_call)
+        thread.start()
+
+    def async_service_call(self):
+        try:
+            response = self.client.call(self.request)
+            self.done_callback(response)
+        except rospy.ServiceException as e:
+            rospy.loginfo(f"Service call failed: {e}")
+        finally:
+            self.is_request_running = False  # 스레드 종료 시 플래그 해제
+
+    def done_callback(self, response):
+        rospy.loginfo(f"{response.success}")
+        rospy.loginfo(response.message)
+
+    def update(self, _event):
+        rospy.loginfo("updating!!")
+
+    def periodic_request(self, _event):
+        self.send_request()
+
+
+def main():
+    try:
+        node = ServiceClient()
+        rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
+
+
+if __name__ == "__main__":
+    main()

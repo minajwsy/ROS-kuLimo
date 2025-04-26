@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+
+import time
+
+import rospy
+from std_srvs.srv import SetBool, SetBoolResponse
+
+
+class ServiceServer:
+    def __init__(self):
+        self.srv = rospy.Service('setBool', SetBool, self.setBool_callback)
+        self.bool = False
+        rospy.Timer(rospy.Duration(0.1), self.print_state)  # 상태 출력 타이머
+
+    def setBool_callback(self, request):
+        response = SetBoolResponse()
+        rospy.loginfo(f"{request.data}")
+        rospy.loginfo(f"{self.bool}")
+        if request.data != self.bool:
+            self.bool = not self.bool
+            response.success = True
+            response.message = f"{self.bool} setting success"
+        else:
+            response.success = False
+            response.message = f"{self.bool} setting fail"
+        time.sleep(5)
+        return response
+
+    def print_state(self, _event):
+        rospy.loginfo(f"Current state: {self.bool}")
+
+def main():
+    rospy.init_node('service_server')
+    node = ServiceServer()
+    try:
+        rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+import rospy
+from std_msgs.msg import Header, String
+
+
+class MTSub:
+    def __init__(self):
+        self.sub1 = rospy.Subscriber('message', String, self.callback1)
+        self.sub2 = rospy.Subscriber('time', Header, self.callback2)
+
+    def callback1(self, msg):
+        rospy.loginfo(f"Received on /message: {msg.data}")
+
+    def callback2(self, msg):
+        rospy.loginfo(f"Received on /time: {msg.frame_id} at {msg.stamp.to_sec():.2f}")
+
+
+def main():
+    rospy.init_node('mtsub')
+    node = MTSub()
+    rospy.spin()
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except rospy.ROSInterruptException:
+        pass

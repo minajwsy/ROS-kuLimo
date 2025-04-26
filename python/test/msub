@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import rospy
+from std_msgs.msg import String
+
+
+class MSub:
+    def __init__(self):
+        self.sub = rospy.Subscriber('message', String, self.callback)
+
+    def callback(self, data):
+        rospy.loginfo(data.data)
+
+
+def main():
+    rospy.init_node('msub')
+    node = MSub()
+    rospy.spin()
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except rospy.ROSInterruptException:
+        pass
