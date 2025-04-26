@@ -25,6 +25,7 @@ catkin_install_python(PROGRAMS
   scripts/msub
   scripts/msub2
   scripts/simpleServiceServer
+  scripts/simpleServiceClient
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

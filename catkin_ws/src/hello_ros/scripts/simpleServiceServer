@@ -15,8 +15,9 @@ class ServiceServer:
         response = SetBoolResponse()
         thread = threading.Thread(target=self.async_service_hd, args=(request, response))
         thread.start()
+        thread.join()
         return response
-    
+
     def async_service_hd(self, request, response):
         # 서버가 처리하는 코드 ....
         rospy.loginfo("서비스 처리 시작")
@@ -25,7 +26,6 @@ class ServiceServer:
         response.success = True
         time.sleep(5)
         rospy.loginfo("서비스 처리 끝")
-        return response
 
     def print_state(self, _evnet):
         rospy.loginfo("main 쓰레드...")
