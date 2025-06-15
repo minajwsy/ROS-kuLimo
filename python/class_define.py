@@ -1,4 +1,4 @@
-Class Knight:
+class Knight:
     def __init__(self, health, mana, armor):
         self.health = health
         self.mana = mana
